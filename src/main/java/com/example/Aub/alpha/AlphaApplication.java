@@ -1,63 +1,33 @@
 package com.example.Aub.alpha;
 
+import com.example.Aub.alpha.student.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.List;
 
 @SpringBootApplication
+@RestController
 public class AlphaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AlphaApplication.class, args);
 	}
-
+	@GetMapping
+	public List<Student> hello() {
+		return List.of(
+				new Student(
+						1L,
+						"Miriam",
+						"miriam.jamal@gmail.com",
+						LocalDate.of(2000, Month.JANUARY, 5),
+						21)
+		);
+	}
 }
 
-@Entity
-public class User {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private final String name;
-    private final String email;
-    
-    // standard constructors / setters / getters / toString
-}
 
-@RestController
-@CrossOrigin(origins = "http://localhost:4200")
-public class UserController {
-
-    // standard constructors
-    
-    private final UserRepository userRepository;
-
-    @GetMapping("/users")
-    public List<User> getUsers() {
-        return (List<User>) userRepository.findAll();
-    }
-
-    @PostMapping("/users")
-    void addUser(@RequestBody User user) {
-        userRepository.save(user);
-    }
-}
-
-@SpringBootApplication
-public class Application {
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-
-    @Bean
-    CommandLineRunner init(UserRepository userRepository) {
-        return args -> {
-            Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
-                User user = new User(name, name.toLowerCase() + "@domain.com");
-                userRepository.save(user);
-            });
-            userRepository.findAll().forEach(System.out::println);
-        };
-    }
-}
