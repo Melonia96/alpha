@@ -17,11 +17,11 @@ public class StudentConfig {
         Student miriam = new Student(
                 "Miriam",
                 "miriam.jamal@gmail.com",
-                LocalDate.of(2000, JANUARY, 5));
+                LocalDate.of(2000, JANUARY, 5), grade);
         Student alex = new Student(
                 "Alex",
                 "alex@gmail.com",
-                LocalDate.of(2004, JANUARY, 5));
+                LocalDate.of(2004, JANUARY, 5), grade);
         repository.saveAll(List.of(miriam,alex));
         };
     }

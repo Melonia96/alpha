@@ -20,21 +20,26 @@ generator = "student_sequence")
         private String name;
         private	String email;
         private LocalDate dob;
+        private Integer grade;
         @Transient
         private Integer age;
 
-    public Student(){}
-        public Student(Long id, String name, String email, LocalDate dob){
+    public Student(Integer grade){
+        this.grade = grade;
+    }
+        public Student(Long id, String name, String email, LocalDate dob, Integer grade){
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-    }
+            this.grade = grade;
+        }
 
-    public Student(String name, String email, LocalDate dob){
+    public Student(String name, String email, LocalDate dob, Integer grade){
         this.name=name;
         this.email=email;
         this.dob=dob;
+        this.grade = grade;
     }
 
     public Long getId(){
