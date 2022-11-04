@@ -33,7 +33,8 @@ public class StudentController {
     public void updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestParam(required = false) String name,
+            @RequestParam(required = false) Integer grade,
             @RequestParam(required = false) String email){
-        studentService.updateStudent(studentId,name,email);
+        studentService.updateStudent(studentId,name,grade,email);
     }
 }

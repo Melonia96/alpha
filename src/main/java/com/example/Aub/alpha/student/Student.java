@@ -18,10 +18,19 @@ generator = "student_sequence")
 
         private Long id;
         private String name;
+        private Integer grade;
         private	String email;
         private LocalDate dob;
-        private Integer grade;
-        @Transient
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+           @Transient
         private Integer age;
 
     public Student(Integer grade){
@@ -32,7 +41,7 @@ generator = "student_sequence")
         this.name = name;
         this.email = email;
         this.dob = dob;
-            this.grade = grade;
+        this.grade = grade;
         }
 
     public Student(String name, String email, LocalDate dob, Integer grade){
@@ -88,6 +97,7 @@ generator = "student_sequence")
                 "id=" + id+
                 ", name='" +name +'\''+
                 ", email='" +email +'\''+
+                ", grade='" +grade +'\''+
                 ", dob=" + dob +
                 ", age=" +age +
                 '}';
