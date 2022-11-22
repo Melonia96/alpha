@@ -35,7 +35,7 @@ generator = "student_sequence")
     public Student(Integer grade){
         this.grade = grade;
     }
-        public Student(Long id, String name, String email, LocalDate dob, Integer grade){
+    public Student(Long id, String name, String email, LocalDate dob, Integer grade){
         this.id = id;
         this.name = name;
         this.email = email;
