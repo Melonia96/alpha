@@ -38,7 +38,7 @@ public class StudentService {
     }
 
     @Transactional
-    public void updateStudent(Long studentId,String name,Integer grade,String email){
+    public void updateStudent(Long studentId, String name, String email, Integer grade){
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalStateException("student with Id" + studentId + " does not exist"));
         if (name != null &&
@@ -56,7 +56,11 @@ public class StudentService {
             }
             student.setEmail(email);
         }
+        if (grade != null &&
+                !Objects.equals(student.getGrade(), grade)) {
+            student.setGrade(grade);
+        }
 
-}
+    }
 
 }

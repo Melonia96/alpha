@@ -21,6 +21,8 @@ generator = "student_sequence")
         private Integer grade;
         private	String email;
         private LocalDate dob;
+        @Transient
+        private Integer age;
 
     public Integer getGrade() {
         return grade;
@@ -29,9 +31,6 @@ generator = "student_sequence")
     public void setGrade(Integer grade) {
         this.grade = grade;
     }
-
-           @Transient
-        private Integer age;
 
     public Student(Integer grade){
         this.grade = grade;
