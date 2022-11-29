@@ -21,6 +21,10 @@ generator = "student_sequence")
         private Integer grade;
         private	String email;
         private LocalDate dob;
+        private String street;
+        private String city;
+        private String state;
+        private Integer zipcode;
         @Transient
         private Integer age;
 
@@ -35,19 +39,28 @@ generator = "student_sequence")
     public Student(Integer grade){
         this.grade = grade;
     }
-    public Student(Long id, String name, String email, LocalDate dob, Integer grade){
+    public Student(Long id, String name, String email, LocalDate dob, Integer grade, String street, String city, String state, Integer zipcode){
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.grade = grade;
-        }
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
 
-    public Student(String name, String email, LocalDate dob, Integer grade){
+    public Student(String name, String email, LocalDate dob, Integer grade, String street, String city, String state, Integer zipcode){
         this.name=name;
         this.email=email;
         this.dob=dob;
         this.grade = grade;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+
     }
 
     public Long getId(){
@@ -99,7 +112,39 @@ generator = "student_sequence")
                 ", grade='" +grade +'\''+
                 ", dob=" + dob +
                 ", age=" +age +
+                ", address='"+street + '\''+city +'\''+state + '\''+zipcode+
                 '}';
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public Integer getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(Integer zipcode) {
+        this.zipcode = zipcode;
+    }
 }
