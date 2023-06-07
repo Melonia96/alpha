@@ -33,8 +33,12 @@ public class StudentController {
     public void updateStudent(
             @PathVariable("studentId") Long studentId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer grade,
-            @RequestParam(required = false) String email){
-        studentService.updateStudent(studentId,name, email,grade);
+            @RequestParam(required = false) String street,
+            @RequestParam(required = false) String city,
+            @RequestParam(required = false) String state,
+            @RequestParam(required = false) Integer zipcode,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) Integer grade){
+        studentService.updateStudent(studentId,name,street,city,state,zipcode,email,grade);
     }
 }

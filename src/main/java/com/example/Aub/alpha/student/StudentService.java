@@ -38,13 +38,32 @@ public class StudentService {
     }
 
     @Transactional
-    public void updateStudent(Long studentId, String name, String email, Integer grade){
+    public void updateStudent(Long studentId, String name, String street, String city, String state, Integer zipcode,String email, Integer grade){
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalStateException("student with Id" + studentId + " does not exist"));
         if (name != null &&
         name.length() > 0 &&
         !Objects.equals(student.getName(), name)) {
             student.setName(name);
+        }
+        if (street != null &&
+                street.length() > 0 &&
+                !Objects.equals(student.getStreet(), street)) {
+            student.setStreet(street);
+        }
+        if (city != null &&
+                city.length() > 0 &&
+                !Objects.equals(student.getCity(), city)) {
+            student.setCity(city);
+        }
+        if (state != null &&
+                state.length() > 0 &&
+                !Objects.equals(student.getState(), state)) {
+            student.setState(state);
+        }
+        if (zipcode != null &&
+                !Objects.equals(student.getZipcode(), zipcode)) {
+            student.setZipcode(zipcode);
         }
         if (email != null &&
                 email.length()> 0 &&
